@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo apt install java -y && java -version
+sudo apt install openjdk-11-jre-headless -y && java -version
