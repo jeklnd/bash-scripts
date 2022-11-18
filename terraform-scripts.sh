@@ -6,13 +6,15 @@ function terratouch-envs () {
 	touch variables.tf
 
 	cat >> variables.tf <<EOT
+/*
 variable "AWS_ACCESS_KEY" {
-  #default = ""
+  default = ""
 }
 
 variable "AWS_SECRET_KEY" {
-  #default = ""
+  default = ""
 }
+*/
 
 variable "AWS_REGION" {
   default     = "us-east-1"
