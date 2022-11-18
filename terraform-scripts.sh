@@ -53,9 +53,6 @@ terraform {
 }
 */
 EOT
-
-
-	terraform init
 }
 
 function terratouch-mods () {
