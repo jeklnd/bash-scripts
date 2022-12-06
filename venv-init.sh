@@ -1,36 +1,44 @@
 #!/bin/bash
-echo "Creating the virtual environment..."
-python -m venv venv
-if [ $? eq - 0 ]; then
-    echo "Virtual environment created."
-elif [ $? ne - 0 ]; then
-    echo "Creating virtual environment failed."
 
-echo "Activating virtual environment in venv/bin/activate..."
+echo "Creating the virtual environment..."
+python3 -m venv venv
+if [ $? -eq 0 ]; then
+    echo -e "Virtual environment created.\n"
+elif [ $? -ne 0 ]; then
+    echo -e "Creating virtual environment failed.\n"
+fi
+
+echo "Activating virtual environment..."
 . venv/bin/activate || . venv/scripts/activate
 status=$?
-if [ $? eq - 0 ]; then
-    echo "Virtual environment activated."
-elif [ $? ne - 0 ]; then
-    echo "Activated virtual environment failed."
+if [ $? -eq 0 ]; then
+    echo -e "Virtual environment activated.\n"
+elif [ $? -ne 0 ]; then
+    echo -e "Activated virtual environment failed.\n"
+fi
 
 echo "Creating .gitignore..."
 echo "venv/" > .gitignore
-if [ $? eq - 0 ]; then
-    echo ".gitignore created."
-elif [ $? ne - 0 ]; then
-    echo "Creating .gitignore failed."
+if [ $? -eq 0 ]; then
+    echo -e ".gitignore created.\n"
+elif [ $? -ne 0 ]; then
+    echo -e "Creating .gitignore failed.\n"
+fi
 
 echo "Adding requirements to requirements.txt..."
 python -m pip freeze > requirements.txt
-if [ $? eq - 0 ]; then
-    echo "requirements.txt created."
-elif [ $? ne - 0 ]; then
-    echo "Creating requirements.txt failed."
+if [ $? -eq 0 ]; then
+    echo -e "requirements.txt created.\n"
+elif [ $? -ne 0 ]; then
+    echo -e "Creating requirements.txt failed.\n"
+fi
 
 echo "Creating main.py"
 touch main.py
-if [ $? eq - 0 ]; then
-    echo "main.py created."
-elif [ $? ne - 0 ]; then
-    echo "Creating main.py failed."
+if [ $? -eq 0 ]; then
+    echo -e "main.py created.\n"
+elif [ $? -ne 0 ]; then
+    echo -e "Creating main.py failed.\n"
+fi
+
+echo "To exit the virutal environment, execute 'deactivate'"
