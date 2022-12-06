@@ -1,7 +1,20 @@
-#!/bin/bash/env /bash
-set -o errexit # abort on nonzero exit status
-set -o nounset # abort on unbound variable
-set -o pipefail # don't hide error within pipes
+#!/bin/bash/env bash
+
+###
+# The following script creates a virtual environment, activates it, creates a .gitignore ignore venv/, and creates a requirements.txt.
+# The script should be used in an empty python project directory. Ensure you're in the right directory before running the script.
+###
+
+
+set -o errexit # exit immediately on non-zero status
+set -o nounset # exit immediately on undeclared variables
+set -o pipefail # exit immediately on non-zero status within a pipeline
+
+# trace what gets executed when the script is run with TRACE=1
+if [[ "${TRACE-0}" == "1" ]]; then
+    set -o xtrace
+fi
+
 
 echo "Creating the virtual environment..."
 python3 -m venv venv
@@ -45,3 +58,4 @@ elif [ $? -ne 0 ]; then
 fi
 
 echo "To exit the virutal environment, execute 'deactivate'."
+echo "To help with debugging, execute the command with TRACE=1 e.g. 'TRACE=1 . ~/bash-scripts/venv-init.sh'"
