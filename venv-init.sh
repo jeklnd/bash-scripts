@@ -27,3 +27,10 @@ if [ $? eq - 0 ]; then
     echo "requirements.txt created."
 elif [ $? ne - 0 ]; then
     echo "Creating requirements.txt failed."
+
+echo "Creating main.py"
+touch main.py
+if [ $? eq - 0 ]; then
+    echo "main.py created."
+elif [ $? ne - 0 ]; then
+    echo "Creating main.py failed."
