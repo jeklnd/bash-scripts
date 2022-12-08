@@ -3,7 +3,7 @@
 This repository stores Bash scripts I create to automate repetitive tasks.
 
 # What I learned 
-The scripts listed below are order from most-least recent:
+The scripts listed below are order from most to least recent:
 
 venv-init.sh
 - How to failproof scripts by exiting in specific scenarios using set.
